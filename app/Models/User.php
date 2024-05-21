@@ -48,18 +48,21 @@ class User extends Authenticatable
         ];
     }
 
+    // one-to-one relationship
     public function profile(): HasOne
     {
         return $this->hasOne(Profile::class);
         // return $this->hasOne(Profile::class, 'user_id', 'id');
     }
 
+    // one-to-many relationship
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
         // return $this->hasMany(Post::class, 'user_id', 'id');
     }
 
+    // many-to-many relationship
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class);

@@ -10,6 +10,7 @@ class Post extends Model
 {
     use HasFactory;
 
+    // reverse one-to-many relationship
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

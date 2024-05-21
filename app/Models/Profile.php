@@ -17,6 +17,7 @@ class Profile extends Model
         'avatar',
     ];
 
+    // reverse one-to-one relationship
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

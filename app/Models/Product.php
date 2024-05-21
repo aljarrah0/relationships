@@ -10,6 +10,7 @@ class Product extends Model
 {
     use HasFactory;
 
+    // reverse many-to-many relationship
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
