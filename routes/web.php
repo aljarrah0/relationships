@@ -22,7 +22,11 @@ Route::get('profiles/{id}', function ($id) {
 
 Route::get('user/{id}/posts/', function ($id) {
 
-    $user = User::where('id', $id)->with('posts')->first();
+    $userPosts = User::where('id', $id)->with('posts')->first();
 
-    dd($user->toArray());
+    foreach ($userPosts->posts as $post) {
+        echo '<h3>'.$post->title.'</h3>'.$post->body.'</br>';
+    }
+
+    dd($userPosts->toArray());
 });
