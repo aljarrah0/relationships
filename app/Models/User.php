@@ -50,16 +50,19 @@ class User extends Authenticatable
 
     public function profile(): HasOne
     {
-        return $this->hasOne(Profile::class, 'user_id', 'id');
+        return $this->hasOne(Profile::class);
+        // return $this->hasOne(Profile::class, 'user_id', 'id');
     }
 
     public function posts(): HasMany
     {
-        return $this->hasMany(Post::class, 'user_id', 'id');
+        return $this->hasMany(Post::class);
+        // return $this->hasMany(Post::class, 'user_id', 'id');
     }
 
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'product_user', 'user_id', 'product_id');
+        return $this->belongsToMany(Product::class);
+        // return $this->belongsToMany(Product::class, 'product_user', 'user_id', 'product_id');
     }
 }
