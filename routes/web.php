@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Product;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -50,4 +51,13 @@ Route::get('user/{id}/products', function ($id) {
         echo '<h4>'.$product->title.'</h4>';
     }
     dd($user->toArray());
+});
+
+Route::get('product/{id}/users', function ($id) {
+    $product = Product::where('id', $id)->with('users')->first();
+    echo '<h1>'.$product->title.'</h1>';
+    foreach ($product->users as $user) {
+        echo '<h6>'.'* '.$user->name.'</h6>';
+    }
+    dd($product->toArray());
 });
