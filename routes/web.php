@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +30,15 @@ Route::get('user/{id}/posts/', function ($id) {
     }
 
     dd($userPosts->toArray());
+});
+
+Route::get('all-posts', function () {
+    $posts = Post::with('user')->get();
+
+    foreach ($posts as $post) {
+        echo '<h4>'.$post->title.'</h4>'.'<i>'.$post->user->name.'</i>';
+    }
+
+    dd($posts->toArray());
+
 });
