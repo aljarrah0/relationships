@@ -15,7 +15,7 @@ Route::get('users/{id}', function ($id) {
 });
 
 Route::get('profiles/{id}', function ($id) {
-    $profile = Profile::where('id', $id)->first();
+    $profile = Profile::where('id', $id)->with('user')->first();
 
     dd($profile->toArray());
 });
