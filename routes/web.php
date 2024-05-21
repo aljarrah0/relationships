@@ -42,3 +42,12 @@ Route::get('all-posts', function () {
     dd($posts->toArray());
 
 });
+
+Route::get('user/{id}/products', function ($id) {
+    $user = User::where('id', $id)->with('products')->first();
+    echo '<h1>'.$user->name.'</h1>';
+    foreach ($user->products as $product) {
+        echo '<h4>'.$product->title.'</h4>';
+    }
+    dd($user->toArray());
+});
