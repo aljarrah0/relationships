@@ -9,6 +9,6 @@ Route::get('/', function () {
 
 Route::get('users/{id}', function ($id) {
 
-    $user = User::where('id', $id)->first();
+    $user = User::where('id', $id)->with('profile')->first();
     dd($user->toArray());
 });
