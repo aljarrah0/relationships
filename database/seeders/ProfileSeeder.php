@@ -19,5 +19,12 @@ class ProfileSeeder extends Seeder
             'avatar' => 'image.png',
         ]);
 
+        Profile::create([
+            'user_id' => 2,
+            'fname' => 'أحمد',
+            'lname' => 'الجراح',
+            'avatar' => 'image.png',
+        ]);
+
     }
 }
