@@ -19,3 +19,10 @@ Route::get('profiles/{id}', function ($id) {
 
     dd($profile->toArray());
 });
+
+Route::get('user/{id}/posts/', function ($id) {
+
+    $user = User::where('id', $id)->with('posts')->first();
+
+    dd($user->toArray());
+});
